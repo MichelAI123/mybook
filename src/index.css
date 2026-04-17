@@ -1,0 +1,260 @@
+/* Base Variables */
+  :root {
+    --sys-color-primary: #0b57d0;
+    --sys-color-on-primary: #ffffff;
+    --sys-color-primary-container: #d3e3fd;
+    --sys-color-on-primary-container: #041e49;
+    --sys-color-secondary: #00639b;
+    --sys-color-on-secondary: #ffffff;
+    --sys-color-secondary-container: #cce5ff;
+    --sys-color-on-secondary-container: #001d33;
+    --sys-color-tertiary: #006874;
+    --sys-color-on-tertiary: #ffffff;
+    --sys-color-tertiary-container: #97f0ff;
+    --sys-color-on-tertiary-container: #001f24;
+    --sys-color-error: #b3261e;
+    --sys-color-on-error: #ffffff;
+    --sys-color-error-container: #f9dedc;
+    --sys-color-on-error-container: #410e0b;
+    --sys-color-background: #ffffff;
+    --sys-color-on-background: #1f1f1f;
+    --sys-color-surface: #ffffff;
+    --sys-color-on-surface: #1f1f1f;
+    --sys-color-surface-variant: #e1e2e8;
+    --sys-color-on-surface-variant: #44474e;
+    --sys-color-outline: #74777f;
+    --sys-color-outline-variant: #c4c6cf;
+    --sys-color-surface-container-highest: #e3e2e6;
+    --sys-color-surface-container-high: #e9e7ec;
+    --sys-color-surface-container: #efedf1;
+    --sys-color-surface-container-low: #f5f3f7;
+    --sys-color-surface-container-lowest: #ffffff;
+    --sys-color-inverse-surface: #303034;
+    --sys-color-inverse-on-surface: #f2f0f4;
+    --sys-color-inverse-primary: #a8c7fa;
+    --sys-color-shadow: #000000;
+  }
+
+  /* Dark mode variants, ideally triggered via class "dark" or media query */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --sys-color-primary: #a8c7fa;
+      --sys-color-on-primary: #062e6f;
+      --sys-color-primary-container: #0842a0;
+      --sys-color-on-primary-container: #d3e3fd;
+      --sys-color-secondary: #99cbff;
+      --sys-color-on-secondary: #003355;
+      --sys-color-secondary-container: #004a77;
+      --sys-color-on-secondary-container: #cce5ff;
+      --sys-color-tertiary: #4fd8eb;
+      --sys-color-on-tertiary: #00363d;
+      --sys-color-tertiary-container: #004f58;
+      --sys-color-on-tertiary-container: #97f0ff;
+      --sys-color-error: #f2b8b5;
+      --sys-color-on-error: #601410;
+      --sys-color-error-container: #8c1d18;
+      --sys-color-on-error-container: #f9dedc;
+      --sys-color-background: #131314;
+      --sys-color-on-background: #e2e2e2;
+      --sys-color-surface: #131314;
+      --sys-color-on-surface: #e2e2e2;
+      --sys-color-surface-variant: #44474e;
+      --sys-color-on-surface-variant: #c4c6cf;
+      --sys-color-outline: #8e9099;
+      --sys-color-outline-variant: #44474e;
+      --sys-color-surface-container-highest: #333336;
+      --sys-color-surface-container-high: #2b2b2e;
+      --sys-color-surface-container: #1e1e20;
+      --sys-color-surface-container-low: #191a1c;
+      --sys-color-surface-container-lowest: #0e0e0f;
+      --sys-color-inverse-surface: #e2e2e2;
+      --sys-color-inverse-on-surface: #303034;
+      --sys-color-inverse-primary: #0b57d0;
+    }
+  }
+
+  body {
+    background-color: var(--sys-color-background);
+    color: var(--sys-color-on-background);
+    font-family: 'Google Sans', 'Google Sans Text', 'Outfit', 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden; /* App takes full screen, no scroll on body */
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  .text-title-large {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 400;
+  }
+  .text-title-medium {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+  }
+  .text-title-small {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+  }
+  .text-body-large {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  .text-body-medium {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+  }
+  .text-body-small {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+  }
+  .text-label-large {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+  }
+  .text-label-medium {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+  .text-label-small {
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+/* Material Design Components Utility Classes */
+.btn-primary {
+  background-color: var(--sys-color-primary);
+  color: var(--sys-color-on-primary);
+  border-radius: 9999px;
+  padding: 10px 24px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 1px 3px 1px rgba(0,0,0,0.15);
+  background-color: color-mix(in srgb, var(--sys-color-primary) 92%, white);
+}
+
+.btn-tonal {
+  background-color: var(--sys-color-secondary-container);
+  color: var(--sys-color-on-secondary-container);
+  border-radius: 9999px;
+  padding: 10px 24px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-tonal:hover {
+  background-color: color-mix(in srgb, var(--sys-color-secondary-container) 92%, black);
+}
+
+.btn-icon-tonal {
+  background-color: var(--sys-color-secondary-container);
+  color: var(--sys-color-on-secondary-container);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-icon-tonal:hover {
+  background-color: color-mix(in srgb, var(--sys-color-secondary-container) 90%, black);
+}
+
+.btn-icon-ghost {
+  background-color: transparent;
+  color: var(--sys-color-on-surface-variant);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-icon-ghost:hover {
+  background-color: rgba(var(--sys-color-on-surface-variant), 0.08); /* Requires RGB to work perfectly, but for native CSS, we can cheat */
+  background-color: var(--sys-color-surface-container-high);
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--sys-color-surface-container-lowest);
+}
+
+.surface-card {
+  background-color: var(--sys-color-surface-container-low);
+  border-radius: 24px;
+  padding: 24px;
+  color: var(--sys-color-on-surface);
+}
+
+.chip-select {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid var(--sys-color-outline);
+  color: var(--sys-color-on-surface-variant);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chip-select.active {
+  background-color: var(--sys-color-secondary-container);
+  color: var(--sys-color-on-secondary-container);
+  border-color: transparent;
+}
