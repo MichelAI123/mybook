@@ -3,13 +3,13 @@ from dotenv import load_dotenv
 from llama_parse import LlamaParse
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 from llama_index.core.node_parser import SemanticSplitterNodeParser
-from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 
 # Load environment variables (API keys)
 load_dotenv()
 
-# We use an advanced embedding model to ensure semantic meaning is captured
-embed_model = OpenAIEmbedding(model="text-embedding-3-small")
+# We use an advanced local embedding model to completely bypass OpenAI quotas
+embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-small-en-v1.5")
 Settings.embed_model = embed_model
 
 def process_document(file_path: str):

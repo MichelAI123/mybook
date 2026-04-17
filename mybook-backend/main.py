@@ -8,6 +8,11 @@ app = FastAPI(title="mybooklm API")
 # Store the global index temporarily (in production, use a persistent DB)
 global_index = None 
 
+@app.get("/")
+async def root():
+    print("Health check endpoint hit")
+    return {"status": "mybooklm API is running", "docs": "Visit /docs for the API documentation"}
+
 @app.post("/api/upload")
 async def upload_document(file: UploadFile = File(...)):
     global global_index
@@ -38,8 +43,17 @@ async def query_document(question: str):
     query_engine = global_index.as_query_engine(similarity_top_k=5)
     response = query_engine.query(question)
     
+    citations = []
+    for i, node in enumerate(response.source_nodes):
+        page = node.node.metadata.get('page_label', '1')
+        citations.append({
+            "id": i + 1,
+            "text": node.node.text,
+            "page": page
+        })
+        
     # Return the answer and the exact source nodes (citations)
     return {
         "answer": response.response,
-        "citations": [node.node.text for node in response.source_nodes]
+        "citations": citations
     }
